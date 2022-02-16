@@ -1,8 +1,19 @@
 #!/bin/bash
 set -x
 
+# Read common commands from dss_common.sh
+source $(dirname $0)/dss_common.sh
+
+# URL of the DSS middleware server, for exaple http://localhost:8080
+DSSURL=${1?}
+
 # Look up the git commit hash of the service RegistrationExample (third word in output)
-GITHASH=$(itksnap-wt -P -dssp-services-list | grep RegistrationExample | awk '{print $3}')
+# GITHASH=$(itksnap-wt -P -dssp-services-list | grep RegistrationExample | awk '{print $3}')
+GITHASH=${2?}
+
+dss_auth $DSSURL
+dss_admin_service $DSSURL $GITHASH
+
 
 # Temporary directory for this script
 if [[ ! $TMPDIR ]]; then

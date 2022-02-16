@@ -34,3 +34,4 @@ services:
     environment:
       - DSS_URL=http://app:8080
       - DSS_SERVICE_HASH=e0a316038e9cbe6a000e07c82758532a8863f51f
+      - DSS_SERVICE_HASH2=b7392368dc5dcec910bb8b87006ae38fd1f2cb32

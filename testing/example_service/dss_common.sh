@@ -33,6 +33,8 @@ function dss_admin_service()
   # Parameters
   local DSSURL=${1?}
   local SERVICE_GITHASH=${2?}
+  local SERVICE_GITHASH2=${3?}
+
 
   # Create a provider called 'test' (repeat calls are ok)
   itksnap-wt -dssa-providers-add test
@@ -43,5 +45,9 @@ function dss_admin_service()
   # Add the test service to the provider access list
   local REPO='https://github.com/pyushkevich/alfabis-svc-example'
   itksnap-wt -dssa-providers-services-add test $REPO $SERVICE_GITHASH
+  
+  local REPO2='https://github.com/pyushkevich/my_little_dss_test'
+  itksnap-wt -dssa-providers-services-add test $REPO2 $SERVICE_GITHASH2
+
 }
 

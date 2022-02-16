@@ -12,4 +12,4 @@ WORKDIR /service
 COPY testing/example_service /service/
 
 # Run the daemon, capturing output
-CMD ["bash","-c","/service/dss_daemon.sh $DSS_URL $DSS_SERVICE_HASH > >(tee -a dss_out.log) 2> >(tee -a dss_err.log >&2)"]
+CMD ["bash","-c","/service/dss_daemon.sh $DSS_URL $DSS_SERVICE_HASH $DSS_SERVICE_HASH2 > >(tee -a dss_out.log) 2> >(tee -a dss_err.log >&2)"]
